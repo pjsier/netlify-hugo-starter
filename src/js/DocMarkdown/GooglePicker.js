@@ -45,7 +45,6 @@ export default class GooglePicker extends React.Component {
   componentDidMount() {
     if (this.isGoogleReady()) {
       // google api is already exists
-      // init immediately
       this.onApiLoad();
     } else if (!scriptLoadingStarted) {
       // load google api and the init
