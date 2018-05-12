@@ -14,7 +14,7 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Intro Blurb", name: "description", widget: "text"}
       - {label: "Image", name: "image", widget: "image", required: false}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Body", name: "body", widget: "docmarkdown", developerKey: "AIzaSyC5U7CIxcTFNt8x09Jol1BTDYZHEwbmBuI", clientId: "520699785758-bojuj0nkligtsdhn5l7vhfvk71qnqjij.apps.googleusercontent.com", appId: "520699785758"}
   - name: "pages"
     label: "Pages"
     files:
