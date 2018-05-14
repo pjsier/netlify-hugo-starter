@@ -12,6 +12,18 @@ export default class GoogleDocsMarkdownControl extends React.Component {
     field: ImmutablePropTypes.map
   }
 
+  handlePickedFile(data) {
+    console.log(data);
+    if ('docs' in data) {
+      const fileId = data.docs[0];
+      fetch('https://www.googleapis.com/drive/v3/files/' + fileID)
+        .then(d => d.json())
+        .then(data => {
+          console.log(data);
+        });
+    }
+  }
+
   render() {
     const developerKey = this.props.field.get('developerKey', '');
     const clientId = this.props.field.get('clientId', '');
@@ -26,7 +38,7 @@ export default class GoogleDocsMarkdownControl extends React.Component {
           developerKey={developerKey}
           clientId={clientId}
           scope={[scope]}
-          onChange={data => console.log('WORKED WITH DATA: ', data)}
+          onChange={this.handlePickedFile.bind(this)}
           multiselect={false}
           navHidden={true}
           authImmediate={false}

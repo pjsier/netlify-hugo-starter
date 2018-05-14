@@ -117,18 +117,13 @@ export default class GooglePicker extends React.Component {
     //   throw new Error('Can\'t find view by viewId');
     // }
 
-    function callback(data) {
-      console.log('RAN');
-      console.log(data);
-    }
-
     const picker = new window.google.picker.PickerBuilder()
       .addView(window.google.picker.ViewId.DOCS)
       .setOAuthToken(oauthToken)
        .setDeveloperKey(this.props.developerKey)
        .setAppId('520699785758')
       .setOrigin((window.location.protocol + '//' + window.location.host))
-      .setCallback(callback);
+      .setCallback(this.props.callback);
     // .setCallback((data) => console.log('WORKED'));
     //  .setOrigin('http://localhost:8080');
     //  .setOrigin(window.google.picker.host.origin);
