@@ -16,11 +16,21 @@ export default class GoogleDocsMarkdownControl extends React.Component {
     console.log(data);
     if ('docs' in data) {
       const fileId = data.docs[0].id;
-      fetch('https://www.googleapis.com/drive/v3/files/' + fileId)
-        .then(d => d.json())
-        .then(data => {
-          console.log(data);
-        });
+      window.gapi.client.drive.files.export({
+        'fileId': fileId,
+        'mimeType': 'text/html'
+      }).then(function (success) {
+        console.log(success);
+        //success.result    
+      }, function (fail) {
+        console.log(fail);
+        console.log('Error ' + fail.result.error.message);
+      })
+      // fetch('https://www.googleapis.com/drive/v3/files/' + fileId)
+      //   .then(d => d.json())
+      //   .then(data => {
+      //     console.log(data);
+      //   });
     }
   }
 
