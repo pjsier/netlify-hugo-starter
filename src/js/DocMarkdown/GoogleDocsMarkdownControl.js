@@ -15,7 +15,7 @@ export default class GoogleDocsMarkdownControl extends React.Component {
   handlePickedFile(data) {
     console.log(data);
     if ('docs' in data) {
-      const fileId = data.docs[0];
+      const fileId = data.docs[0].id;
       fetch('https://www.googleapis.com/drive/v3/files/' + fileId)
         .then(d => d.json())
         .then(data => {
