@@ -123,7 +123,7 @@ export default class GooglePicker extends React.Component {
        .setDeveloperKey(this.props.developerKey)
        .setAppId('520699785758')
       .setOrigin((window.location.protocol + '//' + window.location.host))
-      .setCallback(this.props.callback);
+      .setCallback(this.props.onChange);
     // .setCallback((data) => console.log('WORKED'));
     //  .setOrigin('http://localhost:8080');
     //  .setOrigin(window.google.picker.host.origin);
